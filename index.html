@@ -1,0 +1,180 @@
+<!-- Gogotan reference site v1.0 — 2026-07-19 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gogotan, LLC — Staffing Services</title>
+<meta name="description" content="Gogotan, LLC is a Colorado-based staffing firm providing workforce staffing and related services across a range of service industries.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f3a34'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='17' font-weight='700' fill='%23f5f3ee' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --ink: #232823;
+    --ink-soft: #4c534d;
+    --paper: #fcfbf8;
+    --line: #dcd9d1;
+    --accent: #1f3a34;
+    --focus: #8a5a2b;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    z-index: 10;
+  }
+  .skip-link:focus {
+    left: 0.75rem;
+    top: 0.75rem;
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .wrap {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+  header.site {
+    border-top: 6px solid var(--accent);
+    padding: 3.5rem 0 2.25rem;
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--accent);
+  }
+  .tagline {
+    margin: 0.5rem 0 0;
+    font-size: 1.125rem;
+    color: var(--ink-soft);
+  }
+  main {
+    padding-bottom: 3rem;
+  }
+  section {
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--line);
+  }
+  h2 {
+    margin: 0 0 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  p { margin: 0 0 0.75rem; }
+  p:last-child { margin-bottom: 0; }
+  ul.industries {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  ul.industries li {
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  ul.industries li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 0.45rem;
+    height: 0.14rem;
+    background: var(--accent);
+  }
+  ol.steps {
+    margin: 0;
+    padding-left: 1.4rem;
+  }
+  ol.steps li {
+    margin-bottom: 0.5rem;
+  }
+  ol.steps li:last-child { margin-bottom: 0; }
+  footer.site {
+    border-top: 1px solid var(--line);
+    padding: 1.5rem 0 2.5rem;
+    font-size: 0.9375rem;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 480px) {
+    ul.industries { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    a { transition: color 120ms ease; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site">
+  <div class="wrap">
+    <h1>Gogotan, LLC</h1>
+    <p class="tagline">Staffing services across industries.</p>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+
+    <section aria-labelledby="overview-heading">
+      <h2 id="overview-heading">Overview</h2>
+      <p>Gogotan, LLC is a Colorado-based staffing firm. We provide workforce staffing and related services to businesses that contract with us across a range of service industries.</p>
+    </section>
+
+    <section aria-labelledby="industries-heading">
+      <h2 id="industries-heading">Industries we staff</h2>
+      <ul class="industries">
+        <li>Restaurant and food service</li>
+        <li>Beverage and alcohol service</li>
+        <li>Cleaning and janitorial</li>
+        <li>Event management</li>
+        <li>Coaching</li>
+        <li>Other service sectors on request</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="how-heading">
+      <h2 id="how-heading">How it works</h2>
+      <ol class="steps">
+        <li>A business contracts with Gogotan for its staffing needs.</li>
+        <li>Gogotan recruits, employs, and assigns qualified workers to meet those needs.</li>
+        <li>Assigned staff perform the agreed work for the duration of each engagement.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>For inquiries, please reach out through our established business channels.</p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>&copy; 2026 Gogotan, LLC. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
