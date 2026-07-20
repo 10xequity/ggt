@@ -1,180 +1,589 @@
-<!-- Gogotan reference site v1.0 — 2026-07-19 -->
+<!-- Gogotan site v3.0 — 2026-07-19 -->
+<!--
+  Photos are hotlinked from images.unsplash.com (Unsplash License: free for
+  commercial use, no attribution required). For long-term reliability, download
+  each image into an /assets folder in the repo and update the src paths.
+  To add a contact email later: search for "CONTACT-SWAP" below.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gogotan, LLC — Staffing Services</title>
-<meta name="description" content="Gogotan, LLC is a Colorado-based staffing firm providing workforce staffing and related services across a range of service industries.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f3a34'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='17' font-weight='700' fill='%23f5f3ee' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<title>Gogotan, LLC — Turnkey Staffing Solutions</title>
+<meta name="description" content="Gogotan, LLC is a Colorado staffing firm with over a decade of experience. We recruit, employ, and manage your workforce — W-2 or 1099 — and handle payroll, HR, and compliance for you.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1b33'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='17' font-weight='700' fill='%23c8cfd9' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 <style>
   :root {
-    --ink: #232823;
-    --ink-soft: #4c534d;
-    --paper: #fcfbf8;
-    --line: #dcd9d1;
-    --accent: #1f3a34;
-    --focus: #8a5a2b;
+    --black: #05080f;
+    --navy: #0d1b33;
+    --navy-deep: #0a1428;
+    --navy-soft: #16294d;
+    --silver: #c9d0da;
+    --silver-dim: #939cac;
+    --silver-bright: #f0f3f7;
+    --line: rgba(201, 208, 218, 0.16);
+    --glass: rgba(201, 208, 218, 0.06);
+    --focus: #9fc2ff;
+    --max: 68rem;
   }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
+    background: var(--black);
+    color: var(--silver);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     font-size: 1.0625rem;
-    line-height: 1.65;
+    line-height: 1.7;
+    overflow-x: hidden;
   }
+  ::selection { background: var(--navy-soft); color: var(--silver-bright); }
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+  img { max-width: 100%; display: block; }
+
   .skip-link {
-    position: absolute;
-    left: -9999px;
-    top: 0;
-    background: var(--accent);
-    color: #fff;
-    padding: 0.6rem 1rem;
-    z-index: 10;
+    position: absolute; left: -9999px; top: 0; z-index: 100;
+    background: var(--silver-bright); color: var(--black);
+    padding: 0.6rem 1.1rem; border-radius: 0 0 8px 0; font-weight: 600;
   }
-  .skip-link:focus {
-    left: 0.75rem;
-    top: 0.75rem;
+  .skip-link:focus { left: 0; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 1.4rem; }
+
+  /* Nav */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(5, 8, 15, 0.6);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
   }
-  :focus-visible {
-    outline: 3px solid var(--focus);
-    outline-offset: 2px;
+  .nav-inner {
+    max-width: var(--max); margin: 0 auto; padding: 0.8rem 1.4rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   }
-  .wrap {
-    max-width: 44rem;
-    margin: 0 auto;
-    padding: 0 1.25rem;
+  .brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+  .brand-mark {
+    width: 2rem; height: 2rem; border-radius: 7px; flex: none;
+    display: grid; place-items: center;
+    background: var(--navy); border: 1px solid var(--line);
+    color: var(--silver-bright); font-weight: 700;
   }
-  header.site {
-    border-top: 6px solid var(--accent);
-    padding: 3.5rem 0 2.25rem;
+  .brand-name { color: var(--silver-bright); font-weight: 650; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { color: var(--silver-dim); text-decoration: none; font-size: 0.94rem; }
+  .nav-links a:hover { color: var(--silver-bright); }
+  @media (max-width: 760px) { .nav-links { display: none; } }
+
+  /* Hero */
+  .hero {
+    position: relative; min-height: 88vh;
+    display: flex; align-items: center;
+    background:
+      radial-gradient(ellipse 75% 55% at 70% 25%, rgba(22, 41, 77, 0.5), transparent 65%),
+      var(--black);
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
   }
+  #net { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.55; }
+  .hero-content { position: relative; z-index: 2; padding: 8rem 0 5rem; max-width: 42rem; }
   h1 {
-    margin: 0;
-    font-size: clamp(1.9rem, 5vw, 2.6rem);
-    font-weight: 700;
-    letter-spacing: -0.015em;
-    color: var(--accent);
+    margin: 0 0 1.1rem;
+    font-size: clamp(2.3rem, 5.5vw, 3.6rem);
+    line-height: 1.1; font-weight: 750; letter-spacing: -0.02em;
+    color: var(--silver-bright);
   }
-  .tagline {
-    margin: 0.5rem 0 0;
-    font-size: 1.125rem;
-    color: var(--ink-soft);
+  .hero-sub { font-size: 1.18rem; margin: 0 0 2.1rem; max-width: 36rem; }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 600;
+    padding: 0.8rem 1.6rem; border-radius: 9px;
   }
-  main {
-    padding-bottom: 3rem;
+  .btn-primary { background: var(--silver-bright); color: var(--black); }
+  .btn-primary:hover { background: #fff; }
+  .btn-ghost {
+    color: var(--silver-bright); margin-left: 0.7rem;
+    background: var(--glass); border: 1px solid var(--line);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   }
-  section {
-    padding: 1.75rem 0;
-    border-top: 1px solid var(--line);
-  }
+  .btn-ghost:hover { border-color: var(--silver-dim); }
+  .hero-note { margin-top: 2.4rem; font-size: 0.95rem; color: var(--silver-dim); }
+
+  /* Sections */
+  section { padding: 5rem 0; }
   h2 {
-    margin: 0 0 0.75rem;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent);
+    margin: 0 0 1rem;
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    font-weight: 700; letter-spacing: -0.015em; color: var(--silver-bright); line-height: 1.2;
   }
-  p { margin: 0 0 0.75rem; }
+  .lead { font-size: 1.1rem; }
+  p { margin: 0 0 1rem; }
   p:last-child { margin-bottom: 0; }
-  ul.industries {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.4rem 1.5rem;
+  .rule {
+    height: 1px; border: 0; margin: 0;
+    background: linear-gradient(90deg, transparent, var(--line) 15%, var(--line) 85%, transparent);
   }
-  ul.industries li {
-    padding-left: 1.1rem;
-    position: relative;
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 550ms ease, transform 550ms ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+  /* Photo + text rows */
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+  .row + .row { margin-top: 4.5rem; }
+  @media (max-width: 860px) {
+    .row { grid-template-columns: 1fr; gap: 1.8rem; }
+    .row .photo { order: -1; }
   }
-  ul.industries li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.72em;
-    width: 0.45rem;
-    height: 0.14rem;
-    background: var(--accent);
+  .photo {
+    border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--navy-deep);
   }
-  ol.steps {
-    margin: 0;
-    padding-left: 1.4rem;
+  .photo img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; }
+
+  .plain-list { list-style: none; margin: 1.2rem 0 0; padding: 0; }
+  .plain-list li { position: relative; padding: 0.3rem 0 0.3rem 1.7rem; }
+  .plain-list li::before {
+    content: ""; position: absolute; left: 0; top: 0.75em;
+    width: 0.9rem; height: 0.45rem;
+    border-left: 2px solid var(--silver-dim); border-bottom: 2px solid var(--silver-dim);
+    transform: rotate(-45deg) translateY(-45%);
   }
-  ol.steps li {
-    margin-bottom: 0.5rem;
+
+  .note-card {
+    margin-top: 2rem; padding: 1.5rem 1.6rem;
+    background: var(--glass); border: 1px solid var(--line); border-left: 3px solid var(--silver-dim);
+    border-radius: 0 12px 12px 0;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   }
-  ol.steps li:last-child { margin-bottom: 0; }
-  footer.site {
+  .note-card strong { color: var(--silver-bright); }
+
+  /* Services list */
+  .services-list { margin-top: 2.5rem; border-top: 1px solid var(--line); }
+  .service {
+    display: grid; grid-template-columns: 15rem 1fr; gap: 1.5rem;
+    padding: 1.5rem 0; border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 700px) { .service { grid-template-columns: 1fr; gap: 0.3rem; } }
+  .service h3 { margin: 0; font-size: 1.08rem; color: var(--silver-bright); font-weight: 650; }
+  .service p { margin: 0; color: var(--silver); }
+
+  /* Feature bands (gov + IT) */
+  .band { background: linear-gradient(180deg, var(--black), var(--navy-deep) 55%, var(--black)); }
+
+  /* Industries slider */
+  .slider-shell { position: relative; margin-top: 2.4rem; }
+  .slider {
+    display: flex; gap: 1.1rem; overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.2rem 0.2rem 1.2rem;
+    scrollbar-width: thin; scrollbar-color: var(--navy-soft) transparent;
+  }
+  .slider::-webkit-scrollbar { height: 6px; }
+  .slider::-webkit-scrollbar-thumb { background: var(--navy-soft); border-radius: 3px; }
+  .slide {
+    flex: 0 0 min(19.5rem, 80vw); scroll-snap-align: start;
+    border-radius: 14px; overflow: hidden;
+    background: var(--navy-deep); border: 1px solid var(--line);
+    display: flex; flex-direction: column;
+  }
+  .slide img { width: 100%; height: 10.5rem; object-fit: cover; }
+  .slide-panel {
+    width: 100%; height: 10.5rem;
+    background:
+      radial-gradient(ellipse 90% 90% at 30% 20%, rgba(22, 41, 77, 0.9), transparent 70%),
+      var(--navy);
+    display: grid; place-items: center;
+  }
+  .slide-panel svg { width: 3rem; height: 3rem; stroke: var(--silver-dim); fill: none; stroke-width: 1.4; }
+  .slide-body { padding: 1.15rem 1.25rem 1.35rem; }
+  .slide-body h3 { margin: 0 0 0.4rem; font-size: 1.04rem; color: var(--silver-bright); }
+  .slide-body p { margin: 0; font-size: 0.93rem; color: var(--silver-dim); }
+  .slider-controls { display: flex; gap: 0.55rem; justify-content: flex-end; margin-top: 0.4rem; }
+  .slider-btn {
+    width: 2.7rem; height: 2.7rem; border-radius: 50%;
+    background: var(--glass); border: 1px solid var(--line); color: var(--silver-bright);
+    font-size: 1.1rem; cursor: pointer; display: grid; place-items: center;
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  }
+  .slider-btn:hover { border-color: var(--silver-dim); }
+
+  /* Steps */
+  .steps { margin-top: 2.4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2rem; }
+  @media (max-width: 820px) { .steps { grid-template-columns: 1fr; gap: 1.6rem; } }
+  .step h3 { margin: 0.4rem 0 0.4rem; font-size: 1.08rem; color: var(--silver-bright); }
+  .step p { margin: 0; font-size: 0.97rem; color: var(--silver-dim); }
+  .step-num { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; color: var(--silver-dim); }
+
+  /* Experience band */
+  .exp {
+    text-align: center; padding: 3.8rem 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    background: var(--navy-deep);
+  }
+  .exp h2 { margin-bottom: 0.6rem; }
+  .exp p { max-width: 40rem; margin: 0 auto; }
+
+  /* Contact */
+  .contact-card {
+    max-width: 40rem; margin: 0 auto; text-align: center;
+    padding: 2.8rem 2rem;
+    background: var(--glass); border: 1px solid var(--line); border-radius: 18px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .contact-card p { margin-bottom: 1.5rem; }
+
+  footer {
     border-top: 1px solid var(--line);
-    padding: 1.5rem 0 2.5rem;
-    font-size: 0.9375rem;
-    color: var(--ink-soft);
+    padding: 1.9rem 0 2.4rem; font-size: 0.92rem; color: var(--silver-dim);
   }
-  @media (max-width: 480px) {
-    ul.industries { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    a { transition: color 120ms ease; }
-  }
+  .foot-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem; }
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site">
+<nav class="nav" aria-label="Primary">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="Gogotan, LLC — home">
+      <span class="brand-mark" aria-hidden="true">G</span>
+      <span class="brand-name">Gogotan, LLC</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#what">What We Do</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
   <div class="wrap">
-    <h1>Gogotan, LLC</h1>
-    <p class="tagline">Staffing services across industries.</p>
+    <div class="hero-content">
+      <h1>Your workforce, fully handled.</h1>
+      <p class="hero-sub">Gogotan recruits, employs, and manages the people your business runs on. Payroll, HR, and compliance included. You focus on the work. We handle the workforce.</p>
+      <div>
+        <a class="btn btn-primary" href="#contact">Start a conversation</a>
+        <a class="btn btn-ghost" href="#what">See how it works</a>
+      </div>
+      <p class="hero-note">Turnkey staffing for businesses of every size, based in Colorado. Over a decade of experience.</p>
+    </div>
   </div>
 </header>
 
 <main id="main">
-  <div class="wrap">
 
-    <section aria-labelledby="overview-heading">
-      <h2 id="overview-heading">Overview</h2>
-      <p>Gogotan, LLC is a Colorado-based staffing firm. We provide workforce staffing and related services to businesses that contract with us across a range of service industries.</p>
-    </section>
+  <!-- WHAT WE DO -->
+  <section id="what">
+    <div class="wrap">
+      <div class="row">
+        <div class="reveal">
+          <h2>One contract. A complete workforce.</h2>
+          <p class="lead">Most companies don't have a hiring problem. They have an employment problem. Recruiting, onboarding, payroll, HR, and compliance add up to a full-time operation before anyone does a minute of actual work.</p>
+          <p>Gogotan absorbs all of it. Your company contracts with us for the roles you need, whether that's one position or an entire team, for a season or for good. We recruit the talent, employ them as W-2 employees or engage them as 1099 contractors depending on what your situation calls for, and manage everything that comes with it:</p>
+          <ul class="plain-list">
+            <li>Recruiting, screening, and placement</li>
+            <li>Payroll and tax administration</li>
+            <li>HR management and employee relations</li>
+            <li>Onboarding, scheduling, and workforce coordination</li>
+            <li>Fractional management when you need leadership too</li>
+          </ul>
+        </div>
+        <div class="photo reveal">
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200&auto=format&fit=crop" alt="A team leader presenting at a whiteboard while three colleagues work on laptops" loading="lazy">
+        </div>
+      </div>
+      <div class="note-card reveal">
+        <p><strong>To be clear: Gogotan is not a recruitment company.</strong> Recruiters find you a candidate, collect a fee, and hand you the employment burden. The people working in your business work <em>through</em> Gogotan. No new headcount on your books, no payroll setup, no HR department required. One relationship, one invoice, a fully managed workforce.</p>
+      </div>
+    </div>
+  </section>
 
-    <section aria-labelledby="industries-heading">
-      <h2 id="industries-heading">Industries we staff</h2>
-      <ul class="industries">
-        <li>Restaurant and food service</li>
-        <li>Beverage and alcohol service</li>
-        <li>Cleaning and janitorial</li>
-        <li>Event management</li>
-        <li>Coaching</li>
-        <li>Other service sectors on request</li>
-      </ul>
-    </section>
+  <hr class="rule">
 
-    <section aria-labelledby="how-heading">
-      <h2 id="how-heading">How it works</h2>
-      <ol class="steps">
-        <li>A business contracts with Gogotan for its staffing needs.</li>
-        <li>Gogotan recruits, employs, and assigns qualified workers to meet those needs.</li>
-        <li>Assigned staff perform the agreed work for the duration of each engagement.</li>
-      </ol>
-    </section>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="reveal" style="max-width: 44rem;">
+        <h2>What we deliver</h2>
+        <p class="lead">Whether you run a single location or a multi-site operation, whether you're a startup finding your footing or an established company scaling up, the model flexes to fit. Here's the full menu.</p>
+      </div>
+      <div class="services-list reveal">
+        <div class="service">
+          <h3>Temporary staffing</h3>
+          <p>Seasonal surges, special events, coverage gaps, and short-term projects. Trained, ready staff for exactly as long as you need them.</p>
+        </div>
+        <div class="service">
+          <h3>Permanent staffing</h3>
+          <p>Long-term roles filled and fully employed through Gogotan. Your business gets the stability of permanent staff without the administrative weight of direct hiring.</p>
+        </div>
+        <div class="service">
+          <h3>Fractional management</h3>
+          <p>Experienced managers and operational leaders embedded in your business part-time. Leadership-level capability, scaled to what you actually need and can afford.</p>
+        </div>
+        <div class="service">
+          <h3>Coaching</h3>
+          <p>Two ways: we place professional coaches inside your organization to develop your leaders and teams, and we staff coaching businesses that need qualified people to serve their own clients.</p>
+        </div>
+        <div class="service">
+          <h3>Consulting</h3>
+          <p>Subject-matter experts brought in to solve defined problems, on engagement terms that fit the work. Available directly to your business, or as staffing for consulting firms.</p>
+        </div>
+        <div class="service">
+          <h3>Government contracting support</h3>
+          <p>Workforce staffing for contractors performing on government contracts, and for companies bidding on them. Details below.</p>
+        </div>
+        <div class="service">
+          <h3>IT &amp; AI services</h3>
+          <p>Technical staff for a technical decade, from IT support to AI-focused specialists. Details below.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <p>For inquiries, please reach out through our established business channels.</p>
-    </section>
+  <!-- GOV + IT FEATURE BANDS -->
+  <section class="band" style="padding-top: 4rem;">
+    <div class="wrap">
+      <div class="row">
+        <div class="photo reveal">
+          <img src="https://images.unsplash.com/photo-1730888515663-5058024f2e60?q=80&w=1200&auto=format&fit=crop" alt="The United States Capitol building under a clear sky" loading="lazy">
+        </div>
+        <div class="reveal">
+          <h2>Staffing for government work</h2>
+          <p>Government contracts are won on capability and kept on performance. Both come down to people.</p>
+          <p>Gogotan staffs contractors performing on government contracts and supports companies preparing bids that need a credible workforce plan behind them. Prime or sub, pre-award or mid-performance, we supply the staff so you can deliver on the contract.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="reveal">
+          <h2>IT &amp; AI services</h2>
+          <p>Modern operations run on more than muscle. Gogotan places technical talent under the same turnkey model as everything else we do: IT support staff, systems and network roles, and AI-focused specialists who help businesses put new tools to real use.</p>
+          <p>If your team needs technical capability without a technical hiring process, this is the shortcut.</p>
+        </div>
+        <div class="photo reveal">
+          <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=1200&auto=format&fit=crop" alt="A technology team collaborating on laptops around a wooden conference table" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- INDUSTRIES -->
+  <section id="industries">
+    <div class="wrap">
+      <div class="reveal" style="max-width: 44rem;">
+        <h2>Built for the industries that run on people</h2>
+        <p class="lead">If your business depends on showing up staffed, we're built for you. These are the industries we know best, and the list keeps growing.</p>
+      </div>
+      <div class="slider-shell reveal">
+        <div class="slider" id="slider" tabindex="0" role="region" aria-label="Industries we staff, scrollable list">
+          <article class="slide">
+            <img src="https://images.unsplash.com/photo-1760169799369-2b8574466735?q=80&w=900&auto=format&fit=crop" alt="Chefs preparing food in a busy restaurant kitchen" loading="lazy">
+            <div class="slide-body"><h3>Restaurant &amp; Food Service</h3><p>Line cooks to front-of-house. Dependable crews for the hardest-staffed industry in America.</p></div>
+          </article>
+          <article class="slide">
+            <img src="https://images.unsplash.com/photo-1676472018107-d924653cdd67?q=80&w=900&auto=format&fit=crop" alt="A bartender pouring a cocktail into a glass" loading="lazy">
+            <div class="slide-body"><h3>Beverage &amp; Alcohol Service</h3><p>Certified, service-ready bartenders and beverage staff for venues, restaurants, and events.</p></div>
+          </article>
+          <article class="slide">
+            <img src="https://images.unsplash.com/photo-1437326300822-01d8f13c024f?q=80&w=900&auto=format&fit=crop" alt="A cleaner working in a bright modern corridor" loading="lazy">
+            <div class="slide-body"><h3>Cleaning &amp; Janitorial</h3><p>Commercial cleaning teams that show up every shift. Managed and accountable.</p></div>
+          </article>
+          <article class="slide">
+            <img src="https://images.unsplash.com/photo-1549342902-be005322599a?q=80&w=900&auto=format&fit=crop" alt="Confetti falling over a large crowd at a live event" loading="lazy">
+            <div class="slide-body"><h3>Event Management</h3><p>Setup to teardown. Coordinated event crews and on-site management that make it look easy.</p></div>
+          </article>
+          <article class="slide">
+            <div class="slide-panel" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 19L11 12l4 3 5-6"/><path d="M16 8h4v4"/></svg>
+            </div>
+            <div class="slide-body"><h3>Coaching &amp; Consulting</h3><p>Coaches and consultants for your organization, and staffing for firms that provide them.</p></div>
+          </article>
+          <article class="slide">
+            <img src="https://images.unsplash.com/photo-1730888515663-5058024f2e60?q=80&w=900&auto=format&fit=crop" alt="The United States Capitol building" loading="lazy">
+            <div class="slide-body"><h3>Government Contracting</h3><p>Staff for contractors on government contracts and companies bidding on them.</p></div>
+          </article>
+          <article class="slide">
+            <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=900&auto=format&fit=crop" alt="A technology team working together on laptops" loading="lazy">
+            <div class="slide-body"><h3>IT &amp; AI Services</h3><p>Technical staff and AI-capable specialists, placed and managed turnkey.</p></div>
+          </article>
+          <article class="slide">
+            <div class="slide-panel" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 8v8M8 12h8"/></svg>
+            </div>
+            <div class="slide-body"><h3>Your Industry</h3><p>Service sector and beyond. If it takes a reliable team, we can staff it. Ask.</p></div>
+          </article>
+        </div>
+        <div class="slider-controls">
+          <button class="slider-btn" id="prev" aria-label="Scroll industries left">&#8592;</button>
+          <button class="slider-btn" id="next" aria-label="Scroll industries right">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="reveal" style="max-width: 44rem;">
+        <h2>How it works</h2>
+        <p class="lead">Three steps between where you are and fully staffed.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <span class="step-num">STEP 1</span>
+          <h3>Tell us what you need</h3>
+          <p>Roles, schedules, duration, and skills. Permanent, temporary, or fractional. We scope it together and put it in one clear contract.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">STEP 2</span>
+          <h3>We build your team</h3>
+          <p>Gogotan recruits and screens the right people, then brings them on as W-2 employees or 1099 contractors based on your needs. They're employed through us, working for you.</p>
+        </div>
+        <div class="step">
+          <span class="step-num">STEP 3</span>
+          <h3>You run your business</h3>
+          <p>Your team shows up and delivers. Payroll, HR, and administration stay on our desk. You get one invoice and zero employment overhead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <div class="exp reveal">
+    <div class="wrap">
+      <h2>More than ten years of staffing experience.</h2>
+      <p>Multiple specialties, one standard: the right people, fully managed, so our clients can concentrate on what they do best.</p>
+    </div>
   </div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-card reveal">
+        <h2>Let's staff your next chapter.</h2>
+        <!-- CONTACT-SWAP: replace the paragraph below with:
+             <p>Reach our staffing team at <a href="mailto:EMAIL" style="color:var(--silver-bright)">EMAIL</a>.</p>
+             and change the button to href="mailto:EMAIL" with text "Email our staffing team" -->
+        <p>For staffing inquiries, please reach out through our established business channels. A direct contact line is coming soon.</p>
+        <a class="btn btn-primary" href="#top">Back to top</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <p>&copy; 2026 Gogotan, LLC. All rights reserved.</p>
+<footer>
+  <div class="wrap foot-inner">
+    <span>&copy; 2026 Gogotan, LLC. All rights reserved.</span>
+    <span>Turnkey staffing &middot; Colorado, USA</span>
   </div>
 </footer>
+
+<script>
+/* Hero constellation */
+(function () {
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canvas = document.getElementById("net");
+  var ctx = canvas.getContext("2d");
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W, H, pts;
+
+  function size() {
+    W = canvas.offsetWidth; H = canvas.offsetHeight;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function init() {
+    size();
+    var count = Math.min(80, Math.floor((W * H) / 18000));
+    pts = [];
+    for (var i = 0; i < count; i++) {
+      pts.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+        r: Math.random() * 1.3 + 0.6
+      });
+    }
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    var maxD = 125;
+    for (var i = 0; i < pts.length; i++) {
+      var p = pts[i];
+      if (!reduced) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(201, 208, 218, 0.5)";
+      ctx.fill();
+      for (var j = i + 1; j < pts.length; j++) {
+        var q = pts[j];
+        var dx = p.x - q.x, dy = p.y - q.y;
+        var d = Math.sqrt(dx * dx + dy * dy);
+        if (d < maxD) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = "rgba(147, 156, 172," + (0.2 * (1 - d / maxD)) + ")";
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+    if (!reduced) requestAnimationFrame(draw);
+  }
+  init(); draw();
+  var t;
+  window.addEventListener("resize", function () {
+    clearTimeout(t);
+    t = setTimeout(function () { init(); if (reduced) draw(); }, 150);
+  });
+})();
+
+/* Scroll reveal */
+(function () {
+  var els = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    els.forEach(function (el) { el.classList.add("in"); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+/* Industries slider */
+(function () {
+  var slider = document.getElementById("slider");
+  var step = function () {
+    var slide = slider.querySelector(".slide");
+    return slide ? slide.getBoundingClientRect().width + 18 : 320;
+  };
+  document.getElementById("prev").addEventListener("click", function () {
+    slider.scrollBy({ left: -step(), behavior: "smooth" });
+  });
+  document.getElementById("next").addEventListener("click", function () {
+    slider.scrollBy({ left: step(), behavior: "smooth" });
+  });
+  slider.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") { slider.scrollBy({ left: -step(), behavior: "smooth" }); e.preventDefault(); }
+    if (e.key === "ArrowRight") { slider.scrollBy({ left: step(), behavior: "smooth" }); e.preventDefault(); }
+  });
+})();
+</script>
 </body>
 </html>
