@@ -1,9 +1,7 @@
 <!-- Gogotan site v3.0 — 2026-07-19 -->
 <!--
-  Photos are hotlinked from images.unsplash.com (Unsplash License: free for
-  commercial use, no attribution required). For long-term reliability, download
-  each image into an /assets folder in the repo and update the src paths.
-  To add a contact email later: search for "CONTACT-SWAP" below.
+  Photos are from Unsplash (Unsplash License: free for commercial use, no
+  attribution required), self-hosted in /assets.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +10,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gogotan, LLC — Turnkey Staffing Solutions</title>
 <meta name="description" content="Gogotan, LLC is a Colorado staffing firm with over a decade of experience. We recruit, employ, and manage your workforce — W-2 or 1099 — and handle payroll, HR, and compliance for you.">
+<link rel="canonical" href="https://gogotanstaff.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gogotanstaff.com/">
+<meta property="og:site_name" content="Gogotan, LLC">
+<meta property="og:title" content="Gogotan, LLC — Turnkey Staffing Solutions">
+<meta property="og:description" content="A Colorado staffing firm with over a decade of experience. We recruit, employ, and manage your workforce, and handle payroll, HR, and compliance for you.">
+<meta property="og:image" content="https://gogotanstaff.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A team leader presenting at a whiteboard while colleagues work on laptops">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Gogotan, LLC — Turnkey Staffing Solutions">
+<meta name="twitter:description" content="A Colorado staffing firm with over a decade of experience. We recruit, employ, and manage your workforce, and handle payroll, HR, and compliance for you.">
+<meta name="twitter:image" content="https://gogotanstaff.com/assets/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EmploymentAgency",
+  "name": "Gogotan, LLC",
+  "url": "https://gogotanstaff.com/",
+  "email": "admin@gogotanstaff.com",
+  "image": "https://gogotanstaff.com/assets/og-image.jpg",
+  "description": "Turnkey staffing: recruiting, W-2 or 1099 employment, payroll, HR, and compliance, based in Colorado."
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1b33'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='17' font-weight='700' fill='%23c8cfd9' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 <style>
   :root {
@@ -42,6 +65,7 @@
     line-height: 1.7;
     overflow-x: hidden;
   }
+  h1, h2, h3 { text-wrap: balance; }
   ::selection { background: var(--navy-soft); color: var(--silver-bright); }
   :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
   img { max-width: 100%; display: block; }
@@ -77,7 +101,13 @@
   .nav-links { display: flex; gap: 1.5rem; list-style: none; margin: 0; padding: 0; }
   .nav-links a { color: var(--silver-dim); text-decoration: none; font-size: 0.94rem; }
   .nav-links a:hover { color: var(--silver-bright); }
-  @media (max-width: 760px) { .nav-links { display: none; } }
+  @media (max-width: 760px) {
+    .nav-inner { flex-wrap: wrap; row-gap: 0.4rem; padding: 0.6rem 1rem; }
+    .nav-links { flex-wrap: wrap; gap: 0.2rem 1rem; width: 100%; }
+    .nav-links a { display: inline-block; padding: 0.15rem 0; }
+    .hero .hero-content { padding-top: 10rem; }
+  }
+  section[id] { scroll-margin-top: 5.5rem; }
 
   /* Hero */
   .hero {
@@ -105,10 +135,11 @@
   .btn-primary { background: var(--silver-bright); color: var(--black); }
   .btn-primary:hover { background: #fff; }
   .btn-ghost {
-    color: var(--silver-bright); margin-left: 0.7rem;
+    color: var(--silver-bright);
     background: var(--glass); border: 1px solid var(--line);
     backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 0.7rem; }
   .btn-ghost:hover { border-color: var(--silver-dim); }
   .hero-note { margin-top: 2.4rem; font-size: 0.95rem; color: var(--silver-dim); }
 
@@ -269,7 +300,7 @@
     <div class="hero-content">
       <h1>Your workforce, fully handled.</h1>
       <p class="hero-sub">Gogotan recruits, employs, and manages the people your business runs on. Payroll, HR, and compliance included. You focus on the work. We handle the workforce.</p>
-      <div>
+      <div class="hero-ctas">
         <a class="btn btn-primary" href="#contact">Start a conversation</a>
         <a class="btn btn-ghost" href="#what">See how it works</a>
       </div>
@@ -297,7 +328,7 @@
           </ul>
         </div>
         <div class="photo reveal">
-          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200&auto=format&fit=crop" alt="A team leader presenting at a whiteboard while three colleagues work on laptops" loading="lazy">
+          <img src="assets/team-meeting.jpg" width="1200" height="900" alt="A team leader presenting at a whiteboard while three colleagues work on laptops" loading="lazy">
         </div>
       </div>
       <div class="note-card reveal">
@@ -313,7 +344,7 @@
     <div class="wrap">
       <div class="reveal" style="max-width: 44rem;">
         <h2>What we deliver</h2>
-        <p class="lead">Whether you run a single location or a multi-site operation, whether you're a startup finding your footing or an established company scaling up, the model flexes to fit. Here's the full menu.</p>
+        <p class="lead">Whether you run a single location or a multi-site operation, a startup finding your footing or an established company scaling up, the model flexes to fit. Here's the full menu.</p>
       </div>
       <div class="services-list reveal">
         <div class="service">
@@ -353,7 +384,7 @@
     <div class="wrap">
       <div class="row">
         <div class="photo reveal">
-          <img src="https://images.unsplash.com/photo-1730888515663-5058024f2e60?q=80&w=1200&auto=format&fit=crop" alt="The United States Capitol building under a clear sky" loading="lazy">
+          <img src="assets/capitol.jpg" width="1200" height="800" alt="The United States Capitol building under a clear sky" loading="lazy">
         </div>
         <div class="reveal">
           <h2>Staffing for government work</h2>
@@ -368,7 +399,7 @@
           <p>If your team needs technical capability without a technical hiring process, this is the shortcut.</p>
         </div>
         <div class="photo reveal">
-          <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=1200&auto=format&fit=crop" alt="A technology team collaborating on laptops around a wooden conference table" loading="lazy">
+          <img src="assets/tech-team.jpg" width="1200" height="801" alt="A technology team collaborating on laptops around a wooden conference table" loading="lazy">
         </div>
       </div>
     </div>
@@ -384,19 +415,19 @@
       <div class="slider-shell reveal">
         <div class="slider" id="slider" tabindex="0" role="region" aria-label="Industries we staff, scrollable list">
           <article class="slide">
-            <img src="https://images.unsplash.com/photo-1760169799369-2b8574466735?q=80&w=900&auto=format&fit=crop" alt="Chefs preparing food in a busy restaurant kitchen" loading="lazy">
-            <div class="slide-body"><h3>Restaurant &amp; Food Service</h3><p>Line cooks to front-of-house. Dependable crews for the hardest-staffed industry in America.</p></div>
+            <img src="assets/kitchen.jpg" width="800" height="533" alt="Chefs preparing food in a busy restaurant kitchen" loading="lazy">
+            <div class="slide-body"><h3>Restaurant &amp; Food Service</h3><p>Line cooks to front-of-house. Dependable crews for one of the toughest industries to keep staffed.</p></div>
           </article>
           <article class="slide">
-            <img src="https://images.unsplash.com/photo-1676472018107-d924653cdd67?q=80&w=900&auto=format&fit=crop" alt="A bartender pouring a cocktail into a glass" loading="lazy">
+            <img src="assets/bartender.jpg" width="800" height="800" alt="A bartender pouring a cocktail into a glass" loading="lazy">
             <div class="slide-body"><h3>Beverage &amp; Alcohol Service</h3><p>Certified, service-ready bartenders and beverage staff for venues, restaurants, and events.</p></div>
           </article>
           <article class="slide">
-            <img src="https://images.unsplash.com/photo-1437326300822-01d8f13c024f?q=80&w=900&auto=format&fit=crop" alt="A cleaner working in a bright modern corridor" loading="lazy">
+            <img src="assets/cleaning.jpg" width="800" height="533" alt="A cleaner working in a bright modern corridor" loading="lazy">
             <div class="slide-body"><h3>Cleaning &amp; Janitorial</h3><p>Commercial cleaning teams that show up every shift. Managed and accountable.</p></div>
           </article>
           <article class="slide">
-            <img src="https://images.unsplash.com/photo-1549342902-be005322599a?q=80&w=900&auto=format&fit=crop" alt="Confetti falling over a large crowd at a live event" loading="lazy">
+            <img src="assets/event.jpg" width="800" height="534" alt="Confetti falling over a large crowd at a live event" loading="lazy">
             <div class="slide-body"><h3>Event Management</h3><p>Setup to teardown. Coordinated event crews and on-site management that make it look easy.</p></div>
           </article>
           <article class="slide">
@@ -406,11 +437,11 @@
             <div class="slide-body"><h3>Coaching &amp; Consulting</h3><p>Coaches and consultants for your organization, and staffing for firms that provide them.</p></div>
           </article>
           <article class="slide">
-            <img src="https://images.unsplash.com/photo-1730888515663-5058024f2e60?q=80&w=900&auto=format&fit=crop" alt="The United States Capitol building" loading="lazy">
+            <img src="assets/capitol.jpg" width="1200" height="800" alt="The United States Capitol building" loading="lazy">
             <div class="slide-body"><h3>Government Contracting</h3><p>Staff for contractors on government contracts and companies bidding on them.</p></div>
           </article>
           <article class="slide">
-            <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749b4?q=80&w=900&auto=format&fit=crop" alt="A technology team working together on laptops" loading="lazy">
+            <img src="assets/tech-team.jpg" width="1200" height="801" alt="A technology team working together on laptops" loading="lazy">
             <div class="slide-body"><h3>IT &amp; AI Services</h3><p>Technical staff and AI-capable specialists, placed and managed turnkey.</p></div>
           </article>
           <article class="slide">
@@ -470,11 +501,8 @@
     <div class="wrap">
       <div class="contact-card reveal">
         <h2>Let's staff your next chapter.</h2>
-        <!-- CONTACT-SWAP: replace the paragraph below with:
-             <p>Reach our staffing team at <a href="mailto:EMAIL" style="color:var(--silver-bright)">EMAIL</a>.</p>
-             and change the button to href="mailto:EMAIL" with text "Email our staffing team" -->
-        <p>For staffing inquiries, please reach out through our established business channels. A direct contact line is coming soon.</p>
-        <a class="btn btn-primary" href="#top">Back to top</a>
+        <p>Reach our staffing team at <a href="mailto:admin@gogotanstaff.com" style="color:var(--silver-bright)">admin@gogotanstaff.com</a>.</p>
+        <a class="btn btn-primary" href="mailto:admin@gogotanstaff.com">Email our staffing team</a>
       </div>
     </div>
   </section>

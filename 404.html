@@ -1,4 +1,4 @@
-<!-- Gogotan reference site v1.0 — 2026-07-19 -->
+<!-- Gogotan reference site v1.1 — 2026-11-19 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,20 +6,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Page not found — Gogotan, LLC</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f3a34'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='17' font-weight='700' fill='%23f5f3ee' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1b33'/%3E%3Ctext x='16' y='22' font-family='system-ui,sans-serif' font-size='17' font-weight='700' fill='%23c8cfd9' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
 <style>
   :root {
-    --ink: #232823;
-    --ink-soft: #4c534d;
-    --paper: #fcfbf8;
-    --accent: #1f3a34;
-    --focus: #8a5a2b;
+    --black: #05080f;
+    --navy: #0d1b33;
+    --navy-soft: #16294d;
+    --silver: #c9d0da;
+    --silver-bright: #f0f3f7;
+    --line: rgba(201, 208, 218, 0.16);
+    --focus: #9fc2ff;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
+    background:
+      radial-gradient(ellipse 75% 55% at 70% 25%, rgba(22, 41, 77, 0.5), transparent 65%),
+      var(--black);
+    color: var(--silver);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     font-size: 1.0625rem;
     line-height: 1.65;
@@ -27,34 +31,31 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 6px solid var(--accent);
   }
-  :focus-visible {
-    outline: 3px solid var(--focus);
-    outline-offset: 2px;
+  :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+  main { max-width: 34rem; padding: 2rem 1.25rem; text-align: center; }
+  .mark {
+    width: 2.6rem; height: 2.6rem; margin: 0 auto 1.4rem; border-radius: 8px;
+    display: grid; place-items: center;
+    background: var(--navy); border: 1px solid var(--line);
+    color: var(--silver-bright); font-weight: 700; font-size: 1.2rem;
   }
-  main {
-    max-width: 34rem;
-    padding: 2rem 1.25rem;
-    text-align: center;
+  h1 { margin: 0 0 0.5rem; font-size: 1.9rem; color: var(--silver-bright); text-wrap: balance; }
+  p { margin: 0 0 1.6rem; }
+  a.btn {
+    display: inline-block; text-decoration: none; font-weight: 600;
+    padding: 0.8rem 1.6rem; border-radius: 9px;
+    background: var(--silver-bright); color: var(--black);
   }
-  h1 {
-    margin: 0 0 0.5rem;
-    font-size: 1.75rem;
-    color: var(--accent);
-  }
-  p { margin: 0 0 1.25rem; color: var(--ink-soft); }
-  a {
-    color: var(--accent);
-    font-weight: 600;
-  }
+  a.btn:hover { background: #fff; }
 </style>
 </head>
 <body>
 <main>
+  <div class="mark" aria-hidden="true">G</div>
   <h1>Page not found</h1>
   <p>The page you're looking for doesn't exist on this site.</p>
-  <p><a href="/">Return to the Gogotan, LLC home page</a></p>
+  <p><a class="btn" href="/">Return to the Gogotan, LLC home page</a></p>
 </main>
 </body>
 </html>

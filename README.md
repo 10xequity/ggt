@@ -1,6 +1,6 @@
 # Gogotan, LLC — Reference Website
 
-**Version:** 1.0 · **Date:** 2026-07-19
+**Version:** 1.1 · **Date:** 2026-11-19
 
 A minimal, static reference page for Gogotan, LLC, built for GitHub Pages. Informational only — no marketing, no lead capture, no analytics, no external requests, no build step.
 
@@ -10,6 +10,8 @@ A minimal, static reference page for Gogotan, LLC, built for GitHub Pages. Infor
 |---|---|
 | `index.html` | The complete site (HTML + inline CSS, self-contained) |
 | `404.html` | Branded "page not found" page linking back to home |
+| `assets/` | Self-hosted photos (Unsplash License) and the 1200×630 social share image `og-image.jpg` |
+| `robots.txt`, `sitemap.xml`, `llms.txt` | Crawler rules, sitemap, and a plain-text site summary for AI tools |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is (skips Jekyll processing) |
 | `README.md` | This file |
 
@@ -41,3 +43,4 @@ A custom GitHub Actions workflow is available as an alternative publishing sourc
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-07-19 | Initial release. |
+| 1.1 | 2026-11-19 | Contact email live (admin@gogotanstaff.com); SEO/social tags, JSON-LD, robots/sitemap/llms.txt; self-hosted images; mobile nav links visible; 404 restyled navy. |
